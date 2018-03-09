@@ -1,0 +1,28 @@
+
+{% extends "base.html" %} 
+{% block header %}
+  <h1>{{ book.name}}</h1>
+{% endblock header %}
+
+{% block content %}
+ 
+<style> 
+.div-a{ float:left;width:20%;} 
+.div-b{ float:right;width:78%;} 
+</style> 
+<body> 
+<div class="div-a">
+    <a  href="{% url 'writer' book.writer.id %}">{{ book.writer.name }}</a><br><br>
+    上传者：{{ book.owner.username }}<br>
+    下载量：{{ book.xzl }}<br><br>
+    <a  href='http://mikoto.site/{{ book.downurl }}'>点我即可下载</a> 
+</div>
+<div class="div-b">
+<div class="jumbotron">
+{{ book.jianjie }}<br>
+</div>
+</div>
+</body> 
+
+{% endblock content %}
+ 

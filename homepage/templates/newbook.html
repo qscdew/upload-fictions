@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+{% block header %}
+<h2>添加书</h2>
+{% endblock header %}
+{% block content %}
+  
+<form method='post'>
+
+</form>
+
+<form action="/newbook/" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}<br>
+    <input type="file" name="fafafa" />限制大小800kb，格式为txt
+<br><input type="submit" value="提交">
+</form>
+  
+  
+{% endblock content %}
+ 

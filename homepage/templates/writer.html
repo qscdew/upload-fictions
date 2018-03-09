@@ -1,0 +1,29 @@
+
+{% extends "base.html" %} 
+{% block header %}
+  <h1>{{ writer.name}}</h1>
+{% endblock header %}
+
+{% block content %}
+ 
+<div class="row">
+<div class="container-fluid">
+   {% for book in books %}
+
+  <div class="col-xs-6 col-md-2">
+    <a href="{% url 'book' book.id %}" class="thumbnail">
+      
+      <div align="center">
+              <b>{{ book.name }}</b><br>
+        {{ book.writer }}
+        </div>
+    </a>
+  </div>
+{% endfor %} 
+
+</div>
+</div>
+
+
+{% endblock content %}
+ 

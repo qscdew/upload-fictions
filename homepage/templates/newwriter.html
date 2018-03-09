@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% block header %}
+<h2>作者列表</h2>
+{% endblock header %}
+{% block content %}
+<style> 
+.div-a{ float:left;width:35%;} 
+.div-b{ float:right;width:58%;} 
+</style> 
+<body> 
+<div class="div-a">
+<ul class="list-group">
+{% for writer in writers %}
+
+  <li class="list-group-item">
+  <div align="center"><a  href="{% url 'writer' writer.id %}">{{ writer.name }}</a> </div>
+
+  </li>
+
+{% endfor %}
+</ul>
+
+</div>
+
+<div class="div-b">
+<h3>增加新的作家：</h3>
+<form method='post'>
+</form>
+
+<form action="/newwriter/" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}<br>
+
+<br><input type="submit" value="提交">
+</form>
+</div>
+
+</body>
+  
+  
+{% endblock content %}
+ 

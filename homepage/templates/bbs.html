@@ -1,0 +1,44 @@
+{% extends "base.html" %} 
+{% block header %}
+<h2>留言板</h2>
+{% endblock header %}
+{% block content %}
+<style> 
+.div-a{ float:left;width:35%;} 
+.div-b{ float:right;width:58%;} 
+</style> 
+<body> 
+<div class="div-a">
+{% for liuyan in liuyans %}
+<ul class="list-group">
+
+
+  <li class="list-group-item">
+  {{ liuyan.neirong }}<br>By {{liuyan.owner.username}}
+
+  </li>
+
+
+</ul>
+{% endfor %}
+</div>
+
+<div class="div-b">
+<h4>您想说的话：</h4>
+<form method='post'>
+</form>
+
+<form action="/bbs/" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}<br>
+
+<br><input type="submit" value="提交">
+</form>
+</div>
+
+</body>
+
+  
+  
+{% endblock content %}
+ 
